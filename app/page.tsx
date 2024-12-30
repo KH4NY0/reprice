@@ -33,7 +33,7 @@ const Home = () => {
       </section>
 
       <section className="trending-section">
-        <h2 className="section-text">
+        <h2 className="text-4xl">
           Trending
         </h2>
         <div className="flex flex-wrap gap-x-8 gap-y-16">
