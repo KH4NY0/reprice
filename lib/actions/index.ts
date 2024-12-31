@@ -51,12 +51,49 @@ export async function scrapeAndStoreProduct(productUrl: string) {
 
 export async function getProductById(productId: string) {
     try {
-        connectToDB();
+        await connectToDB();
 
-        const product = await Product.findOne({ _id: productId })
+        const product = await Product.findOne({ _id: productId });
 
-        if(!product) return null
+        if (!product) return null;
+        
+        // Add this return statement - this was missing!
+        return product;
+
+    } catch (error) {
+        console.error("Error in getProductById:", error);
+        return null;
+    }
+}
+
+export async function getAllProducts() {
+    try {
+        connectToDB()
+
+        const products = await Product.find()
+
+        return products
     } catch(error) {
         console.log(error)
     }
 }
+
+export async function getSimilarProducts(productId: string) {
+    try {
+        connectToDB()
+
+        const currentProduct = await Product.findById(productId)
+
+        if(!currentProduct) return null
+
+        const similarProducts = await Product.find({
+            _id: { $ne: productId }
+        }).limit(4)
+
+        return currentProduct
+    } catch(error) {
+        console.log(error)
+    }
+}
+
+

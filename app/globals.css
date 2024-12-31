@@ -207,7 +207,7 @@
   }
 
   .product-title {
-    @apply text-secondary text-xl leading-6 font-semibold truncate;
+    @apply text-xl leading-6 font-semibold truncate;
   }
 
   /* SEARCHBAR INPUT */
@@ -217,6 +217,15 @@
 
   .searchbar-btn {
     @apply bg-gray-900 border border-gray-900 rounded-lg shadow-xs px-5 py-3 text-white text-base font-semibold hover:opacity-90 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .limited-text {
+    display: -webkit-box; /* Required for webkit browsers */
+    -webkit-box-orient: vertical; /* Set the box orientation to vertical */
+    overflow: hidden; /* Hides overflowing content */
+    text-overflow: ellipsis; /* Adds an ellipsis (...) for overflow */
+    -webkit-line-clamp: 5; /* Limits the text to 5 lines */
+    line-clamp: 5; /* Optional: for future compatibility */
   }
 }
 

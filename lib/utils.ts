@@ -2,6 +2,14 @@ import { PriceHistoryItem, Product } from "@/types";
 // import { Notification } from "@/lib/nodemailer"
 // import { THRESHOLD_PERCENTAGE } from "@/lib/nodemailer"
 
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
+
 const Notification = {
   WELCOME: 'WELCOME',
   CHANGE_OF_STOCK: 'CHANGE_OF_STOCK',
