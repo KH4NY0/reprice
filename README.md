@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Reprice
 
-## Getting Started
+Reprice is a web scraping application that allows users to track eCommerce product prices in real-time. Built with Next.js 14, the application scrapes product data, monitors price changes, and sends email notifications to keep users informed.
 
-First, run the development server:
+---
+
+### Features
+
+Real-Time Price Tracking: Monitor the prices of products across multiple eCommerce platforms.
+
+Email Notifications: Receive instant alerts when a product's price drops.
+
+Automated Data Scraping: Continuously fetch and update product data without manual intervention.
+
+User-Friendly Interface: Simple and intuitive UI to add and manage tracked products.
+
+Efficient Performance: Built using modern web technologies to ensure fast and seamless operation.
+
+---
+
+### Tech Stack
+
+Framework: Next.js 14
+
+Styling: TailwindCSS
+
+Database: MongoDB
+
+Web Scraping: Cheerio.js and BrightData
+
+Email Notifications: Nodemailer
+
+Deployment: Vercel
+
+---
+
+### Installation
+
+#### Clone the Repository:
+```bash
+git clone https://github.com/KH4NY0/reprice.git
+```
+
+##### Install Dependencies:
+```bash
+npm install
+```
+
+#### Set Up Environment Variables:
+Create a .env file in the root directory and add the following:
+
+```bash
+BRIGHT_DATA_USERNAME=
+BRIGHT_DATA_PASSWORD=
+MONGODB_URI=
+EMAIL_PASSWORD= // from outlook.com
+```
+
+#### Run the Application:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Access the Application:
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Usage
+Add a Product to Track:
+Enter the product URL from Amazon to start tracking its price.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Monitor Price Changes:
+The app will automatically scrape the product's price at regular intervals.
 
-## Learn More
+Receive Notifications:
+Get email alerts whenever the product's price drops or reaches your desired threshold.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Contributing
+Contributions are welcome! Please follow these steps:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### 1. Fork the repository.
 
-## Deploy on Vercel
+#### 2. Create a new branch: git checkout -b feature-name.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### 3. Commit your changes: git commit -m 'Add feature name'.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### 4. Push to the branch: git push origin feature-name.
+
+#### 5. Submit a pull request.
+
+### License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+

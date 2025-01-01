@@ -3,22 +3,13 @@ import { redirect } from "next/navigation";
 import Image from "next/image"
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ShoppingBag } from "lucide-react";
+import { ArrowRight, Mail, ShoppingBag } from "lucide-react";
 import { Product } from "@/types";
 import { formatNumber } from "@/lib/utils";
 import PriceInfoCard from "@/components/PriceInfoCard";
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-  } from "@/components/ui/dialog"
-  import { Input } from "@/components/ui/input"
-  import { Label } from "@/components/ui/label"
 import ProductCard from "@/components/ProductCard"
+import Modal from "@/components/Modal";
+
 
 
 type Props = {
@@ -26,13 +17,14 @@ type Props = {
 };
 
 const ProductDetails = async ( props: Props) => {
-    const { id } = props.params
+    const { id } = await props.params
     const product: Product = await getProductById(id);
 
     if (!product) redirect('/')
 
     const similarProducts = await getSimilarProducts(id)
 
+   
     return (
         <div className="product-container">
             <div className="flex gap-28 xl:flex-row flex-col">
@@ -95,40 +87,7 @@ const ProductDetails = async ( props: Props) => {
                                 />
                             </div>
                         </div>
-                        <div className="w-full">
-                            <Dialog>
-                                <DialogTrigger asChild>
-                                    <Button  className="w-full bg-black text-white">Track</Button>
-                                </DialogTrigger>
-                                <DialogContent className="sm:max-w-[425px]">
-                                    <DialogHeader>
-                                        <DialogTitle>
-                                            <Image 
-                                                src="/assets/images/reprice-logo.svg"
-                                                alt="logo"
-                                                width={94}
-                                                height={94}
-                                            />
-                                            
-                                        </DialogTitle>
-                                        <DialogDescription>
-                                            You will get an email notifying you when the price of the product is at it's lowest 
-                                        </DialogDescription>
-                                    </DialogHeader>
-                                        <div className="grid gap-4 py-4">
-                                            <div className="grid grid-cols-4 items-center gap-4">
-                                                <Label htmlFor="email" className="text-right">
-                                                Email
-                                                </Label>
-                                                <Input id="email" className="col-span-3" placeholder="Enter your email"/>
-                                            </div>
-                                        </div>
-                                    <DialogFooter>
-                                        <Button type="submit">Track</Button>
-                                    </DialogFooter>
-                                </DialogContent>
-                            </Dialog>
-                        </div>
+                        <Modal productId={id} />
                 </div>
             </div>
             <div className="flex flex-col gap-16">
